@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dashboard</title>
+    <!--  <link rel="stylesheet" href="">-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&family=REM:wght@500&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Google+Sans&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap");
+
+      body {
+        font-family: "REM";
+        color: #ffffff;
+        overflow: hidden;
+      }
+      body {
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      iframe {
+        display: block;
+        overflow: hidden;
+        width: 500px;
+        background-color: white;
+        height: 318px;
+        border-radius: 10px;
+        transform: translateZ(0px);
+        border: 3px solid #eee;
+      }
+      #child {
+        position: relative;
+        top: 50%;
+        transform: translateY(50%);
+      }
+
+      .container {
+        display: table;
+        width: 100%;
+        height: 100vh; /* adjust the height as needed */
+      }
+
+      .centered-div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center; /* optional for horizontal centering */
+      }
+      .inner-div {
+        background-color: white ;
+        border-radius:16px;
+        cursor:pointer;
+        margin:6px;
+      }
+
+      h1,h2,h3,h4,h5,h6,p{
+        color:black;
+        font-family:"google sans";
+  
+        
+        
+        
+        
+        
+      }
+      iframe{
+        max-width:266px;
+        overflow:hidden;
+      }
+    </style>
+    <script src="nest.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+var firebaseConfig = {
+  apiKey: "AIzaSyAuNXO-ArdnVMxjzVCBP5GV-jxLCcmM-gk",
+  authDomain: "cock-f2bab.firebaseapp.com",
+  databaseURL: "https://cock-f2bab-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "cock-f2bab",
+  storageBucket: "cock-f2bab.appspot.com",
+  messagingSenderId:  "206464805704",
+  appId: "1:206464805704:web:6dd2108a0f010a3c0e217d"
+};
+firebase.initializeApp(firebaseConfig);
+// Initialize variables
+const auth = firebase.auth()
+const database = firebase.database()
+
+// Reference the specific location in the database where your "Steps" tag is stored
+const stepsRef = database.ref("Steps");
+
+// Retrieve the value of the "Steps" tag
+stepsRef.on("value", function(snapshot) {
+  const stepsValue = snapshot.val();
+  console.log("Steps:", stepsValue);
+  
+      document.getElementById('steps').innerHTML= '<b>'+stepsValue+'</b>'
+  
+});
+
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="centered-div">
+        <center>
+          <table>
+            <tr>
+              <th>
+                <div width="400" height="257" style="padding:5px;border-radius:16px;" class="inner-div">
+                  
+                
+                  <h3 style="font-size:34px">You Have Walked</h3>
+                  <h1 style="font-size:60px" id="steps"></h1>
+                  <h3 style="font-size:34px">Steps</h3>
+                  
+                </div>
+              </th>
+              
+              <th><center ><div style="padding:15px;padding-right:30px;padding-left:30px" onclick="window.location.assign('/consult/dochat.html')" class="inner-div" >
+                <img style="border-radius:16px;" src="https://thumbs.dreamstime.com/b/remote-183558740.jpg" height="200" width="200"><br><br><h2>
+                TeleConsult
+                </h2>
+                </div></center></th>
+              <th>
+              <center ><div style="padding:15px;" onclick="window.location.assign('/consult/something.html')" class="inner-div" >
+                <img style="border-radius:16px;" src="https://cdn.glitch.global/d68d56e6-1590-4152-a7e9-e50550f1b51f/OIP%20(1).jpeg?v=1696048288225" height="200" width="200"><br><br><h2>
+               Symptom Checker
+                </h2>
+                </div></center>
+              </th>
+              <th><center ><div style="padding:15px;" onclick="window.location.assign('/resources/bmi.html')" class="inner-div" >
+                <img style="border-radius:16px;" src="https://cdn2.iconfinder.com/data/icons/fitness-8/512/fitness-color-16-512.png" height="200" width="200"><br><br><h2>
+                BMI Calculator
+                </h2>
+                </div></center></th>
+            </tr>
+            <tr>
+              <td><center ><div style="padding:15px;" onclick="window.location.assign('/helpus.html')" class="inner-div" >
+                <img style="border-radius:16px;" src="https://visionsvcb.org/wp-content/uploads/2020/03/donate-icon.png" height="200" width="200"><br><br><h2>
+                Donate
+                </h2>
+                </div></center></td>
+              <td><center ><div style="padding:15px;" onclick="window.location.assign('https://www.surveymonkey.com/r/526PNF9')" class="inner-div" >
+                <img style="border-radius:16px;" src="https://cdn1.iconfinder.com/data/icons/feedback-review-1/64/x-21-512.png" height="200" width="200"><br><br><h2>
+               Feedback
+                </h2>
+                </div></center></td>
+                <td><center >
+                <iframe width="360" height="440" scrolling="no" src="https://rss.app/embed/v1/carousel/zlekzdo1GodgqndJ" frameborder="0"></iframe></center></td>
+            </tr>
+          </table>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

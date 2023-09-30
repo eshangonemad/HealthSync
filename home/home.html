@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script src='https://starlogin.eshanaditya.repl.co/site.script.starlogin.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&family=REM:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap');
+    
+
+
+
+body{
+   font-family:'REM';
+    color:#ffffff;
+ overflow: hidden;
+}
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.stream-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.button span {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+}
+
+  </style>
+</head>
+<body>
+  <h1 id="welc"></h1>
+    <div class="stream-deck">
+      <center>
+        <div class="button" onclick="clk1()">
+          <span></span>
+        </div>
+        <div class="button" onclick="clk2()"">
+            <span>2</span>
+        </div>     <div class="button" onclick="clk3()">
+            <span>3</span>
+        </div>
+        <div class="button" onclick="clk4()">
+            <span>4</span>
+        </div>     <div class="button" onclick="clk5()">
+            <span>5</span>
+        </div>
+        <div class="button" onclick="clk6()">
+            <span>6</span>
+        </div>
+        <!-- Add more buttons as needed -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&family=REM:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap');
+
+
+
+body{
+   font-family:'REM';
+    color:#ffffff;
+ overflow: hidden;
+}
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.stream-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.button span {
+    margin-top: 10px;
+    color: #000000;
+    font-size: 18px;
+    text-align: center;
+}
+
+  </style>
+</head>
+<body><center>
+    <div class="stream-deck">
+        <div class="button" onclick="clk2()">
+            <img src="/resource/med (2).jpg" width="100" height="100">
+          <span>Multi-Vitamin</span>
+        </div>     <div class="button" onclick="clk3()">
+            <img src="/resource/med (3).jpg" width="100" height="100">
+          <span>Cotton Wool</span>
+        </div>
+        <div class="button" onclick="clk4()">
+            <img src="/resource/med (4).jpg" width="100" height="100">
+          <span>Support Band</span>
+        </div>     <div class="button" onclick="clk5()">
+            <img src="/resource/med (5).jpg" width="100" height="100">
+          <span>Medical Tape</span>
+        </div>
+        <div class="button" onclick="clk6()">
+            <img src="/resource/med (7).jpg" width="100" height="100">
+          <span>Tiger Balm</span>
+        </div>
+      <div class="button" onclick="clk7()">
+            <img src="/resource/med (8).jpg" width="100" height="100">
+          <span>Panadol</span>
+        </div>
+      <div class="button" onclick="clk8()">
+            <img src="/resource/med (9).jpg" width="100" height="100">
+          <span>Sprain Spray</span>
+        </div>
+      <div class="button" onclick="clk9()">
+            <img src="/resource/med (10).png" width="100" height="100">
+          <span>Covid Kit</span>
+        </div>
+      <button>Buy Now</button>
+        <!-- Add more buttons as needed -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

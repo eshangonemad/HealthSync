@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Symptom Checker</title>
+  </head>
+  <script src="sum.js"></script>
+  <link href="sum.css" rel="stylesheet" type="text/css" />
+  <body>
+<br><br><br><br><br><br>
+    <center>
+    <div id="body">
+      <h1>Symptom Checker</h1>
+      <form id="symptomCheckerForm">
+        <label for="symptoms">Select your symptoms:</label><br /><br />
+        <input type="checkbox" onclick="fec()" id="fe" />Fever <br>
+        <input type="checkbox" onclick="coc()" id="co" />Cough <br>
+        <input type="checkbox" onclick="snc()" id="sn" />Sneezing <br>
+        <input type="checkbox" onclick="ftc()" id="ft" />Fatigue <br>
+        <input type="checkbox" onclick="uwlc()" id="uwl" />Unexplained weight loss<br> 
+        <input type="checkbox" onclick="stc()" id="st" />Sore Throat <br>
+        <input type="checkbox" onclick="rnc()" id="rn" />Runny Nose <br>
+        <input type="checkbox" onclick="swc()" id="sw" />Swelling <br> 
+        <input type="checkbox" onclick="nac()" id="na" />Nausea <br>
+        <input type="checkbox" onclick="sobc()" id="sob" />Shortness of breath <br><br>
+        <button onclick="chk()">
+          <b>  Check</b>
+        </button>
+        <br><br>
+      </form>
+    </div>
+    </center>
+  </body>
+</html>
