@@ -147,38 +147,39 @@ var inf = "You may have ";
 function chk() {
   //alert('fever:'+fev+':cough:'+cov+':snee:'+snv+':uwl:'+uwlv+':stv:'+stv+':rn:'+rnv)
 
-  if (fev === 1 && cov === 1 && stv === 1 && pav === 1) {
+  if ( fev === 1 && cov === 1 && snv === 0 && ftv === 1 && uwlv === 0 && stv === 1 && rnv === 0 && swv === 0 && nav === 0 && sobv === 0 && pav === 1 && rhrv === 0 && jpv === 0 && rav === 0 && mlv === 0 && hev === 0 ) {
     inf = inf + "Influenza, ";
   }
-  if (rnv === 1 && snv === 1 && stv === 1 && cov === 1 && hev === 1) {
+  if ( fev === 0 && cov === 0 && snv === 1 && ftv === 0 &&  uwlv === 0 &&  stv === 1 &&  rnv === 1 &&  swv === 0 &&  nav === 0 && sobv === 0 &&  pav === 0 && rhrv === 0 && jpv === 0 && rav === 0 && mlv === 0 &&  hev === 1) {
     inf = inf + "Common Cold, ";
   }
-  if (fev === 1 && ftv === 1 && cov === 1 && sobv === 1) {
+  if ( fev === 1 && cov === 1 && snv === 0 && ftv === 1 && uwlv === 0 && stv === 1 && rnv === 0 && swv === 0 && nav === 0 && sobv === 1 && pav === 0 &&  rhrv === 0 & jpv === 0 &&  rav === 0 &&  mlv === 0 &&  hev === 0) {
     inf = inf + "COVID - 19, ";
   }
-  if (ftv === 1 && uwlv === 1) {
+  if ( fev === 0 && cov === 0 && snv === 0 && ftv === 1 && uwlv === 1 && stv === 1 && rnv === 0 && swv === 0 && nav === 0 && sobv === 0 && pav === 0 && rhrv === 0 && jpv === 0 && rav === 0 && mlv === 0 &&hev === 0) {
     inf = inf + "Diabetes (Type 2), ";
   }
-  if (jpv === 1 && swv === 1) {
+  if ( fev === 0 && cov === 0 && snv === 0 && ftv === 0 && uwlv === 0 && stv === 1 && rnv === 0 && swv === 1 && nav === 0 && sobv === 0 && pav === 0 && rhrv === 0 && jpv === 1 && rav === 0 && mlv === 0 && hev === 0 ) {
     inf = inf + "Arthritis, ";
   }
-  if (sobv === 1 && ftv === 1) {
+  if (fev === 0 && cov === 0 && snv === 0 && ftv === 1 && uwlv === 0 && stv === 1 && rnv === 0 && swv === 0 &&  nav === 0 && sobv === 1 && pav === 0 &&  rhrv === 0 &&  jpv === 0 &&  rav === 0 && mlv === 0 && hev === 0) {
     inf = inf + "Heart disease, ";
   }
-  if (jpv === 1 && rhrv === 1) {
+  if (fev === 0 &&cov === 0 && snv === 0 && ftv === 0 && uwlv === 0 && stv === 1 && rnv === 0 && swv === 0 && nav === 0 &&  sobv === 0 && pav === 0 && rhrv === 1 && jpv === 1 &&rav === 0 && mlv === 0 && hev === 0) {
     inf = inf + "Anxiety, ";
   }
-  if (mlv === 1) {
+  if (  fev === 0 &&  cov === 0 &&  snv === 0 &&  ftv === 0 &&  uwlv === 0 &&  stv === 1 &&  rnv === 0 && swv === 0 &&  nav === 0 && sobv === 0 && pav === 0 && rhrv === 0 && jpv === 0 && rav === 0 && mlv === 1 && hev === 0 ) {
     inf = inf + "Alzheimer's, ";
   }
-  if (nav === 1 && hev === 1) {
+  if ( fev === 0 && cov === 0 && snv === 0 && ftv === 0 && uwlv === 0 && stv === 1 && rnv === 0 && swv === 0 && nav === 1 && sobv === 0 && pav === 0 && rhrv === 0 && jpv === 0 && rav === 0 && mlv === 0 && hev === 1 ) {
     inf = inf + "Migraine, ";
   }
-  if (rav === 1) {
-    inf = inf + "Ezecema, ";
+  if (
+  fev === 0 && cov === 0 && snv === 0 && ftv === 0 &&uwlv === 0 &&stv === 1 &&rnv === 0 &&swv === 0 &&nav === 0 &&sobv === 0 &&pav === 0 && rhrv === 0 &&jpv === 0 && rav === 1 &&  mlv === 0 && hev === 0) {
+    inf = inf + "Eszema, ";
   }
   if (inf == "You may have ") {
-    inf = inf + "to contact a doctor @ teleconsult";
+    inf = "Uncommon Disease, Please contact a doctor @ TeleConsult";
   }
   alert(inf);
 
