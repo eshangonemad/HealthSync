@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&family=REM:wght@500&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Google+Sans&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@700&display=swap");
+
+    body {
+      font-family: "REM", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: black; /* Changed font color to black */
+      overflow: hidden;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .grid-item {
+      background-color: #ffffff;
+      border-radius: 16px;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .grid-item img {
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    .grid-item h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .steps-container {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: black; /* Changed font color to black */
+    }
+
+    .steps-container h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="grid-item">
+      <h2>You Have Walked</h2>
+    <h1 id="steps"></h1>
+    <h2>Steps</h2><br><br><br>
+    <iframe src="/resource/watert.html" height="300" width="350"></iframe>
+    </div>
+  <div class="container">
+    <div class="grid-item" onclick="window.location.assign('/resource/meds.html')">
+      <img src="https://images6.alphacoders.com/513/513905.jpg" alt="Meds tracker">
+      <h2>Medicine Tracker</h2>
+    </div>
+    <div class="grid-item" onclick="window.location.assign('/resource/something.html')">
+      <img src="https://cdn.glitch.global/d68d56e6-1590-4152-a7e9-e50550f1b51f/OIP%20(1).jpeg?v=1696048288225" alt="Symptom Checker">
+      <h2>Symptom Checker</h2>
+    </div>
+    <div class="grid-item" onclick="window.location.assign('/resource/bmi.html')">
+      <img src="https://cdn2.iconfinder.com/data/icons/fitness-8/512/fitness-color-16-512.png" alt="BMI Calculator">
+      <h2>BMI Calculator</h2>
+    </div>
+    <div class="grid-item" onclick="window.location.assign('/resource/water.html')">
+      <img src="https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Water Intake">
+      <h2>Water Intake</h2>
+    </div>
+    <div class="grid-item" onclick="window.location.assign('/resource/breathing.html')">
+      <img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/applewatch/watchos5-breathe-app-icon.png" alt="Breathing Exercise">
+      <h2>Breathing Exercise</h2>
+    </div>
+    <div class="grid-item" onclick="window.location.assign('/resource/store.html')">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/349/187/original/vector-shop-icon.jpg" alt="Store">
+      <h2>Store</h2>
+    </div>
+  </div>
+  
+  <!-- Firebase JavaScript -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAuNXO-ArdnVMxjzVCBP5GV-jxLCcmM-gk",
+      authDomain: "cock-f2bab.firebaseapp.com",
+      databaseURL: "https://cock-f2bab-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "cock-f2bab",
+      storageBucket: "cock-f2bab.appspot.com",
+      messagingSenderId:  "206464805704",
+      appId: "1:206464805704:web:6dd2108a0f010a3c0e217d"
+    };
+    firebase.initializeApp(firebaseConfig);
+    
+    // Initialize variables
+    const auth = firebase.auth()
+    const database = firebase.database()
+
+    // Reference the specific location in the database where your "Steps" tag is stored
+    const stepsRef = database.ref("Steps");
+
+    // Retrieve the value of the "Steps" tag
+    stepsRef.on("value", function(snapshot) {
+      const stepsValue = snapshot.val();
+      console.log("Steps:", stepsValue);
+  
+      document.getElementById('steps').innerHTML = '<b>' + stepsValue + '</b>';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Symptom Checker</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  form {
+    margin-top: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+  }
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  #results {
+    margin-top: 30px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #444;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Symptom Checker</h1>
+  <form id="symptomForm">
+    <label><input type="checkbox" name="symptom" value="headache"> Headache</label>
+    <label><input type="checkbox" name="symptom" value="cough"> Cough</label>
+    <label><input type="checkbox" name="symptom" value="fever"> Fever</label>
+    <label><input type="checkbox" name="symptom" value="fatigue"> Fatigue</label>
+    <label><input type="checkbox" name="symptom" value="nausea"> Nausea</label>
+    <label><input type="checkbox" name="symptom" value="sore-throat"> Sore Throat</label>
+    <label><input type="checkbox" name="symptom" value="runny-nose"> Runny Nose</label>
+    <label><input type="checkbox" name="symptom" value="shortness-of-breath"> Shortness of Breath</label>
+    <button type="submit">Check Symptoms</button>
+  </form>
+  <div id="results"></div>
+</div>
+
+<script>
+document.getElementById('symptomForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  // Get selected symptoms
+  const selectedSymptoms = Array.from(document.querySelectorAll('input[name="symptom"]:checked')).map(symptom => symptom.value);
+  
+  // Perform simple symptom matching
+  const healthIssues = {
+    'headache': ['Migraine', 'Tension headache', 'Sinusitis'],
+    'cough': ['Common cold', 'Bronchitis', 'Pneumonia'],
+    'fever': ['Flu', 'COVID-19', 'Urinary tract infection'],
+    'fatigue': ['Anemia', 'Chronic fatigue syndrome', 'Depression'],
+    'nausea': ['Food poisoning', 'Gastroenteritis', 'Migraine'],
+    'sore-throat': ['Strep throat', 'Tonsillitis', 'Allergies'],
+    'runny-nose': ['Common cold', 'Allergies', 'Sinusitis'],
+    'shortness-of-breath': ['Asthma', 'Pneumonia', 'Chronic obstructive pulmonary disease'],
+  };
+  
+  // Find potential health issues
+  const potentialIssues = [];
+  selectedSymptoms.forEach(symptom => {
+    if (healthIssues[symptom]) {
+      healthIssues[symptom].forEach(issue => {
+        if (!potentialIssues.includes(issue)) {
+          potentialIssues.push(issue);
+        }
+      });
+    }
+  });
+  
+  // Display results
+  const resultsContainer = document.getElementById('results');
+  resultsContainer.innerHTML = '<h3>Potential Health Issues:</h3>';
+  if (potentialIssues.length > 0) {
+    const ul = document.createElement('ul');
+    potentialIssues.forEach(issue => {
+      const li = document.createElement('li');
+      li.textContent = issue;
+      ul.appendChild(li);
+    });
+    resultsContainer.appendChild(ul);
+  } else {
+    resultsContainer.innerHTML += '<p>No potential health issues found based on selected symptoms.</p>';
+  }
+});
+</script>
+
+</body>
+</html>

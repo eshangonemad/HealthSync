@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditation Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin:2px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  .flower {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    animation: grow-shrink 5s infinite alternate ease-in-out;
+  }
+  @keyframes grow-shrink {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="startPage">
+  <h1>Meditation</h1>
+  <div class="options">
+    <button onclick="startMeditation(1)">1 Minute</button>
+    <button onclick="startMeditation(5)">5 Minutes</button>
+    <button onclick="startMeditation(10)">10 Minutes</button>
+  </div>
+</div>
+
+<div class="container" id="meditationPage" style="display: none;">
+  <h1>Focus on your breath</h1>
+  <p>Breathe in deeply...</p>
+  <div class="flower"></div>
+  <p>Breathe out slowly...</p>
+</div>
+
+<script>
+function startMeditation(minutes) {
+  document.getElementById('startPage').style.display = 'none';
+  document.getElementById('meditationPage').style.display = 'block';
+  
+  setTimeout(() => {
+    document.getElementById('startPage').style.display = 'block';
+    document.getElementById('meditationPage').style.display = 'none';
+  }, minutes * 60 * 1000);
+}
+</script>
+
+</body>
+</html>
